@@ -5,7 +5,8 @@
     "dev": "concurrently \"cd client && vite\" \"cd server && nodemon server\"",
     "start": "cd server && node server",
     "build": "cd client && vite build",
-    "db:seed": "node server/config/reset.js"
+    "db:seed": "node server/config/reset.js",
+    "db:show": "node server/config/show.js"
   },
   "dependencies": {
     "@picocss/pico": "^1.5.7",

@@ -1,47 +1,68 @@
-# UnityGrid Plaza
+# WEB103 Project 3 - UnityGrid Plaza
 
-A virtual community space where visitors explore four locations on an illustrated map and discover their events. Built with React, Express, and PostgreSQL.
+Submitted by: **Adhik Adhikari**
 
-## Features
+About this web app: **A virtual community plaza where visitors select one of four locations on an illustrated map and discover its events.**
 
-- [x] React displays location and event data from the API.
-- [x] Express exposes routes for locations and events.
-- [x] PostgreSQL tables model locations and their events.
-- [x] The front page has a title and an interactive visual map with four selectable locations.
-- [x] Each location has its own URL and lists only events at that location.
-- [x] An All Events page lists every event and filters by location.
-- [x] Event cards show a live countdown and visually distinguish past events.
-- [x] Connect and verify a Render PostgreSQL database.
-- [x] Add a GIF walkthrough of the running app before submission.
+Time spent: **4** hours
 
-## Walkthrough
+## Required Features
 
-![UnityGrid Plaza walkthrough showing the map, location events, and event filter](assets/walkthrough.gif)
+The following **required** functionality is completed:
 
-## Run locally
+- [x] **The web app uses React to display data from the API**
+- [x] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
+  - [x] **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [x] **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
+- [x] **The web app displays a title.**
+- [x] **Website includes a visual interface that allows users to select a location they would like to view.**
+  - [x] *Note: A non-visual list of links to different locations is insufficient.*
+- [x] **Each location has a detail page with its own unique URL.**
+- [x] **Clicking on a location navigates to its corresponding detail page and displays list of all events from the `events` table associated with that location.**
 
-1. Install dependencies with `npm install`.
-2. Create a PostgreSQL database.
-3. Copy `server/.env.example` to `server/.env` and enter your database credentials. For a local database, set `PGSSLMODE=disable`. You may use `DATABASE_URL` instead of the individual `PG*` fields.
-4. Run `npm run db:seed` to create the tables and insert sample locations and events. The seed command can be run again without duplicating those records.
-5. Run `npm run dev`. Open the Vite URL printed in the terminal (usually `http://localhost:5173`).
+The following **optional** features are implemented:
 
-## Connect Render PostgreSQL
+- [x] An additional page shows all possible events
+  - [x] Users can sort *or* filter events by location.
+- [x] Events display a countdown showing the time remaining before that event
+  - [x] Events appear with different formatting when the event has passed (ex. negative time, indication the event has passed, crossed out, etc.).
 
-Create a Render PostgreSQL database, then set either its external connection URL as `DATABASE_URL` or its five `PG*` connection fields in `server/.env`. Set `PGSSLMODE=require` for the external connection. Run `npm run db:seed`, then `npm run dev`. The `.env` file is ignored by Git and must not be committed.
+The following **additional** features are implemented:
 
-Render currently permits one active free PostgreSQL database per workspace; free databases expire after 30 days. See [Render's free tier documentation](https://render.com/docs/free). [Render's connection guide](https://render.com/docs/postgresql-creating-connecting) explains the internal and external URLs.
+- [x] The map and event pages adapt to smaller screens.
+- [x] Location links have accessible names and visible keyboard focus styles.
 
-For a Render web service, set the build command to `npm install && npm run build` and the start command to `npm start`. Add the same database environment variables to the web service. The production server serves the built React app and its `/api` routes.
+## Video Walkthrough
 
-## API
+Here's a walkthrough of implemented required features:
 
-| Route | Purpose |
-| --- | --- |
-| `GET /api/locations` | All locations |
-| `GET /api/locations/:slug` | One location |
-| `GET /api/locations/:slug/events` | Events at one location |
-| `GET /api/events` | All events; optional `?location=slug` filter |
-| `GET /api/events/:id` | One event |
+<img src='assets/walkthrough.gif' title='UnityGrid Plaza Walkthrough' width='700' alt='Walkthrough of the UnityGrid Plaza map and event pages' />
 
-The seed script uses fictional UnityGrid City addresses and sample event descriptions. Event start times are stored as `TIMESTAMPTZ` and displayed in the America/Chicago time zone.
+<img src='assets/database-walkthrough.gif' title='Database Walkthrough' width='700' alt='Render dashboard showing the PostgreSQL database as available, followed by the events table displayed with psql' />
+
+GIFs created with LICEcap. The second walkthrough shows the Render database status and the `events` table through `psql`.
+
+## Notes
+
+The app uses a React frontend, an Express API, and a Render PostgreSQL database. The API exposes locations, individual locations, events at a location, all events, and individual events. Event dates are stored as `TIMESTAMPTZ` and displayed in the America/Chicago time zone.
+
+To run locally:
+
+1. Run `npm install`.
+2. Copy `server/.env.example` to `server/.env` and enter PostgreSQL credentials. The `.env` file is ignored by Git.
+3. Run `npm run db:seed` to create and seed the database.
+4. Run `npm run dev` and open the Vite URL shown in the terminal.
+
+To display the Events table for the database walkthrough, run `npm run db:show`. It invokes `psql` with `SELECT * FROM events;` using the credentials in `server/.env` without showing the password. PostgreSQL command-line tools must be installed.
+
+The starter app had map artwork and page shells, but the API, database schema, event loading, and event formatting were unfinished. Connecting the four map locations to their database-backed pages was a central implementation challenge.
+
+## License
+
+Copyright 2026 Adhik Adhikari
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+> http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
