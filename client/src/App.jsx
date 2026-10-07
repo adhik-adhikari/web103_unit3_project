@@ -1,53 +1,32 @@
 import React from 'react'
-import { useRoutes, Link } from 'react-router-dom'
+import { Link, Navigate, useRoutes } from 'react-router-dom'
 import Locations from './pages/Locations'
 import LocationEvents from './pages/LocationEvents'
 import Events from './pages/Events'
 import './App.css'
 
+const legacySlugs = ['echolounge', 'houseofblues', 'pavilion', 'americanairlines']
+
 const App = () => {
-  let element = useRoutes([
-    {
-      path: '/',
-      element: <Locations />
-    },
-    {
-      path: '/echolounge',
-      element: <LocationEvents index={1} />
-    },
-    {
-      path: '/houseofblues',
-      element: <LocationEvents index={2} />
-    },
-    {
-      path: '/pavilion',
-      element: <LocationEvents index={3} />
-    },
-    {
-      path: '/americanairlines',
-      element: <LocationEvents index={4} />
-    },
-    {
-      path: '/events',
-      element: <Events />
-    }
+  const element = useRoutes([
+    { path: '/', element: <Locations /> },
+    { path: '/locations/:slug', element: <LocationEvents /> },
+    { path: '/events', element: <Events /> },
+    ...legacySlugs.map(slug => ({ path: `/${slug}`, element: <Navigate to={`/locations/${slug}`} replace /> })),
+    { path: '*', element: <section className="not-found"><h2>Page not found</h2><Link to="/">Return to the plaza</Link></section> }
   ])
 
   return (
-    <div className='app'>
-
-      <header className='main-header'>
-        <h1>UnityGrid Plaza</h1>
-
-        <div className='header-buttons'>
-          <Link to='/' role='button'>Home</Link>
-          <Link to='/events' role='button'>Events</Link>
-        </div>
+    <div className="app">
+      <header className="main-header">
+        <Link className="brand" to="/">UnityGrid <span>Plaza</span></Link>
+        <nav aria-label="Main navigation">
+          <Link to="/">Map</Link>
+          <Link to="/events">All events</Link>
+        </nav>
       </header>
-
-      <main>
-        {element}
-      </main>
+      <main id="main-content">{element}</main>
+      <footer className="site-footer">Find your people. Find your place.</footer>
     </div>
   )
 }

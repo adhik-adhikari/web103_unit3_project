@@ -1,59 +1,18 @@
-.available-locations {
-    display: flex;
-    justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-svg {
-    position: absolute;
-    top: -1px;
-    left: 0;
-    width: 100%;
-}
-
-svg polygon {
-    fill: transparent;
-    cursor: pointer;
-}
-
-svg polygon:hover {
-    fill: rgba(55, 216, 232, 0.2);
-}
-
-.venue1-button-overlay {
-    opacity: 0;
-    z-index: 10;
-    position: relative;
-    top: 15%;
-    left: -5%;
-}
-
-.venue2-button-overlay {
-    opacity: 0;
-    z-index: 10;
-}
-
-.venue3-button-overlay {
-    opacity: 0;
-    z-index: 10;
-    position: relative;
-    left: 30%;
-}
-
-.venue4-button-overlay {
-    opacity: 0;
-    z-index: 10;
-    position: relative;
-    top: 20%;
-    left: -5%;
-}
-
-.venue1-button-overlay button,
-.venue2-button-overlay button,
-.venue3-button-overlay button,
-.venue4-button-overlay button {
-    width: 200px;
-    text-transform: uppercase;
-    font-weight: 700;
-}
+.locations-page { max-width: 1240px; margin: 0 auto; padding: 24px 28px 60px; }
+.home-intro { text-align: center; margin: 12px auto 30px; }
+.home-intro h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -.055em; margin: 9px 0; }
+.home-intro p { color: #c9d0e9; font-size: 1.1rem; margin: 0; }
+.map-frame { border: 2px solid #7c8afc; border-radius: 25px; overflow: hidden; box-shadow: 0 24px 70px #0008, 0 0 35px #a16cff44; background: #172343; }
+.map-frame svg { width: 100%; display: block; }
+.map-frame svg a { cursor: pointer; }
+.map-frame polygon { fill: #60deff20; stroke: #83eeff; stroke-width: 2; transition: fill .2s ease, stroke-width .2s ease; }
+.map-frame svg a:hover polygon, .map-frame svg a:focus-visible polygon { fill: #b765ff77; stroke-width: 5; }
+.map-frame text { fill: white; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; paint-order: stroke; stroke: #091127; stroke-width: 5px; pointer-events: none; }
+.map-frame a[href*='americanairlines'] text { font-size: 13px; }
+.map-error { background: #5c2346; border-radius: 10px; padding: 12px; }
+.location-quick-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 18px; }
+.location-quick-links a { display: flex; justify-content: space-between; gap: 8px; align-items: center; text-decoration: none; background: #222b50; border: 1px solid #526096; border-radius: 12px; padding: 16px; font-weight: 700; }
+.location-quick-links a:hover { border-color: #73efff; background: #2e3968; }
+.location-quick-links span { color: #73efff; }
+@media (max-width: 720px) { .locations-page { padding: 14px 18px 42px; } .location-quick-links { grid-template-columns: repeat(2, 1fr); } .map-frame text { font-size: 20px; } }
+@media (max-width: 470px) { .location-quick-links { grid-template-columns: 1fr; } .map-frame text { font-size: 25px; } .map-frame a[href*='americanairlines'] text { font-size: 18px; } }

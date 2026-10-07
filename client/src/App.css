@@ -1,33 +1,15 @@
-.app {
-    background: url('./assets/unitygrid.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
-
-header {
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.main-header {
-    height: 30vh;
-    width: 85vw;
-    align-items: flex-end;
-    position: relative;
-    z-index: 1;
-}
-
-.header-buttons {
-    width: 30%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.header-buttons button {
-    margin-right: 20px;
-    margin-left: 20px;
-}
+.app { min-height: 100vh; background: radial-gradient(circle at 50% 0, #28326b 0, #111631 45%, #0c1027 85%); }
+.main-header { min-height: 88px; max-width: 1240px; margin: auto; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.25rem, 3vw, 1.8rem); font-weight: 700; text-decoration: none; letter-spacing: -.04em; }
+.brand span { color: #ff80d2; }
+.main-header nav { display: flex; align-items: center; gap: 10px; }
+.main-header nav a { text-decoration: none; font-weight: 700; padding: 10px 17px; border-radius: 999px; }
+.main-header nav a:hover { background: #ffffff1c; }
+.main-header nav a:last-child { background: #d66dfb; color: #111026; }
+.main-header nav a:last-child:hover { background: #ecadff; }
+#main-content { min-height: calc(100vh - 150px); }
+.site-footer { padding: 28px; text-align: center; color: #aeb7d6; font-size: .85rem; }
+.eyebrow { display: block; color: #73efff; text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 700; }
+.not-found, .status-message { max-width: 1100px; margin: 60px auto; padding: 28px; }
+.not-found h2 { font-family: 'Space Grotesk', sans-serif; }
+@media (max-width: 540px) { .main-header { padding: 18px; } .main-header nav a { padding: 8px 10px; font-size: .85rem; } }
