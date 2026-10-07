@@ -12,13 +12,11 @@ A virtual community space where visitors explore four locations on an illustrate
 - [x] An All Events page lists every event and filters by location.
 - [x] Event cards show a live countdown and visually distinguish past events.
 - [x] Connect and verify a Render PostgreSQL database.
-- [ ] Add a GIF walkthrough of the running app before submission.
+- [x] Add a GIF walkthrough of the running app before submission.
 
 ## Walkthrough
 
-Record a GIF showing a map location click, the location’s events, the All Events page, and the location filter. Add the GIF to this repository (for example, `assets/walkthrough.gif`) and embed it here:
-
-<!-- ![UnityGrid Plaza walkthrough](assets/walkthrough.gif) -->
+![UnityGrid Plaza walkthrough showing the map, location events, and event filter](assets/walkthrough.gif)
 
 ## Run locally
 
